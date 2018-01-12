@@ -118,6 +118,7 @@ function init() {
 
     //   y += ((k > 38 ? 1 : -1) * s * i) * 0.5;
     // }
+    if (!moveX) moveX = 0;
     y = startX + moveX;
 
     y = Math.max(0, Math.min(y, h - 16));
@@ -191,14 +192,13 @@ function init() {
   //   k = $.which;
   // }
   let startX;
+  let moveX;
 
   wx.onTouchStart((e) => {
     startX = e.touches[0].pageX;
-    // console.log(e);
-    // k = 38;
+
   })
 
-  let moveX;
   wx.onTouchMove((e) => {
 
     moveX = e.touches[0].pageX - startX;
